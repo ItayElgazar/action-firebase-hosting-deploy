@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const { exec } = require('child_process');
+const exec = require('@actions/exec');
 const fs = require('fs');
 
 const { projectId, firebaseToken, config, entryPoint } = {
@@ -31,7 +31,8 @@ const run = async () => {
     core.endGroup();
 
     core.startGroup('Deploying');
-    exec('firebase deploy', [
+
+    const result = await exec('firebase deploy', [
       '--only hosting',
       '--token',
       firebaseToken,
@@ -40,8 +41,9 @@ const run = async () => {
       '--project',
       projectId,
     ]);
+    console.log(JSON.parse(result));
   } catch (error) {
-    throw error;
+    throw new Error('Error whule deploying: ' + error);
   }
 };
 
