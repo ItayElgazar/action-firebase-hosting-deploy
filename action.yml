@@ -1,0 +1,25 @@
+name: 'Firebase Deploy Hosting'
+description: 'Deploy your website to firebase hosting'
+author: 'Itay Elgazar'
+
+inputs:
+  firebaseToken:
+    description: 'Your firebase token',
+    required: true
+  projectId:
+    description: 'Your firebase project id'
+    required: true
+  config:
+    description: 'Your firebase.json config file. If empty, defaults to firebase.json'
+    required: false
+    default: firebase.json
+  entryPoint:
+    description:
+      'The location of your firebase.json file, relative to the root of your
+      directory'
+    default: '.'
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

@@ -1,0 +1,16 @@
+{
+  "name": "action-firebase-hosting-deploy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ItayElgazar/action-firebase-hosting-deploy",
+  "author": "Itay Elgazar <itayekk1@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build src/action.js -o dist"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/exec": "^1.1.0",
+    "@vercel/ncc": "^0.33.1"
+  }
+}
