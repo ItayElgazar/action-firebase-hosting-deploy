@@ -4,7 +4,7 @@ author: 'Itay Elgazar'
 
 inputs:
   firebaseToken:
-    description: 'Your firebase token',
+    description: 'Your firebase token'
     required: true
   projectId:
     description: 'Your firebase project id'
