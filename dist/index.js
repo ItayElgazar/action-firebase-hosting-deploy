@@ -3012,7 +3012,8 @@ const run = async () => {
     ]);
     console.log(JSON.parse(result));
   } catch (error) {
-    throw new Error('Error whule deploying: ' + error);
+    core.setFailed(error.message);
+    throw new Error('Error whule deploying: ' + error.message);
   }
 };
 
