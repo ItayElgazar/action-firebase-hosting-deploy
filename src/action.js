@@ -31,13 +31,15 @@ const run = async () => {
     core.endGroup();
 
     core.startGroup('Deploying');
-    const deploymentText = await exec(
-      'firebase deploy',
-      ['--only hosting'],
-      [`--config=${config}`],
-      [`--project=${projectId}`],
-      [`--token=${firebaseToken}`]
-    );
+    exec('firebase deploy', [
+      '--only hosting',
+      '--token',
+      firebaseToken,
+      '--config',
+      config,
+      '--project',
+      projectId,
+    ]);
   } catch (error) {
     throw error;
   }
