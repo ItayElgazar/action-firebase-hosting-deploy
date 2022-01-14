@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const exec = require('@actions/exec');
+const { exec } = require('@actions/exec');
 const fs = require('fs');
 
 const { projectId, firebaseToken, config, entryPoint } = {
