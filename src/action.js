@@ -34,7 +34,8 @@ const run = async () => {
 
     const result = await exec('npx firebase-tools', [
       'deploy',
-      '--only hosting',
+      '--only',
+      'hosting',
       '--token',
       firebaseToken,
       '--config',
