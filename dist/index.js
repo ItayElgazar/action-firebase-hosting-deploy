@@ -2991,7 +2991,7 @@ const run = async () => {
       }
     }
     if (fs.existsSync(config)) {
-      console.log(`Found firebase.json`);
+      console.log(`Found ${config}`);
     } else {
       throw Error(
         `${config} file not found. If your firebase.json file is not in the root of your repo, edit the entryPoint option of this GitHub action.`
@@ -3001,7 +3001,7 @@ const run = async () => {
 
     core.startGroup('Deploying');
 
-    const result = await exec('firebase deploy', [
+    const result = await exec(`${entryPoint}`, 'firebase deploy', [
       '--only hosting',
       '--token',
       firebaseToken,
@@ -3013,7 +3013,6 @@ const run = async () => {
     console.log(JSON.parse(result));
   } catch (error) {
     core.setFailed(error.message);
-    throw new Error('Error whule deploying: ' + error.message);
   }
 };
 
