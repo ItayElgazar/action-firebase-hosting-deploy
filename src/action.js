@@ -33,7 +33,8 @@ const run = async () => {
     core.startGroup('Deploying');
 
     const result = await exec('npx firebase-tools', [
-      'deploy --only hosting',
+      'deploy',
+      '--only hosting',
       '--token',
       firebaseToken,
       '--config',
