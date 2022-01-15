@@ -3001,7 +3001,7 @@ const run = async () => {
 
     core.startGroup('Deploying');
 
-    const result = await exec('npx irebase-tools deploy', [
+    const result = await exec('npx firebase-tools deploy', [
       '--only hosting',
       '--token',
       firebaseToken,
